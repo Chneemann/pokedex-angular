@@ -1,0 +1,7 @@
+<div class="pokemon-list">
+  @for (pokemon of pokemonList; track pokemon; let i = $index) {
+  <div class="pokemon-card" (click)="getPokemon(pokemon.name)">
+    {{ i }}: {{ pokemon.name }}
+  </div>
+  }
+</div>
