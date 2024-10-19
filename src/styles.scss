@@ -1,6 +1,8 @@
 @import "./assets/style/colors.scss";
+@import "./assets/style/fonts.scss";
 
 * {
   margin: auto 0;
+  font-family: "DM Sans", sans-serif;
   scroll-behavior: smooth;
 }

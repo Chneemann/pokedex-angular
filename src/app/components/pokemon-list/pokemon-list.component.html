@@ -1,5 +1,10 @@
+<app-header (valueChanged)="onValueChanged($event)"></app-header>
 <div class="pokemon-list">
-  @for (pokemon of pokemonDetails; track pokemon; let i = $index) {
+  @if (!filteredPokemon.length) {
+  <h2>No Pokemon found...</h2>
+  } @else {
+  <!-- Pokemon cards -->
+  @for (pokemon of filteredPokemon; track pokemon; let i = $index) {
   <div class="pokemon-card" [ngClass]="pokemon.types[0].type.name" onclick="">
     <div class="pokemon-card-name">{{ pokemon.name }}</div>
     <div class="pokemon-card-content">
@@ -12,5 +17,5 @@
     </div>
     <span class="pokemon-id"></span>
   </div>
-  }
+  } }
 </div>

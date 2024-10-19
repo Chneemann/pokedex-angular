@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 148px);
   padding: 24px;
   flex-wrap: wrap;
   gap: 32px;
@@ -45,6 +46,7 @@
   max-height: 120px;
   img {
     width: auto;
+    max-width: 150px;
     height: 120px;
   }
 }

@@ -7,8 +7,16 @@ header {
   padding: 24px;
   height: 52px;
   background-color: $color-very-dark-blue;
-  h1 {
-    color: $color-white;
+  .logo {
+    display: flex;
+    img {
+      height: 38px;
+      width: auto;
+    }
+    h1 {
+      padding-left: 12px;
+      color: $color-white;
+    }
   }
 }
 
