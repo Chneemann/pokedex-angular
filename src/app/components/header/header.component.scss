@@ -19,6 +19,7 @@ header {
       width: auto;
     }
     h1 {
+      color: $color-orange;
       padding-left: 12px;
     }
   }
@@ -29,17 +30,17 @@ header {
   justify-content: center;
   align-items: center;
   margin: 20px;
+  position: relative;
 }
 
 .search input {
   width: 200px;
   padding: 6px 12px;
-  border: 2px solid $color-white;
+  border: 4px solid $color-orange;
   border-radius: 5px;
   font-size: 16px;
-  color: $color-dark-gray;
+  color: $color-black;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-
   &::placeholder {
     color: $color-gray;
     opacity: 1;
@@ -47,7 +48,18 @@ header {
 }
 
 .search input:focus {
-  border-color: #f5ac78; /* Rahmenfarbe beim Fokus */
-  box-shadow: 0 0 5px rgba(245, 172, 120, 0.5); /* Sanfter Schatten beim Fokus */
-  outline: none; /* Entfernt den Standardfokusrahmen */
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(0) saturate(100%) invert(38%) sepia(62%) saturate(3062%)
+      hue-rotate(341deg) brightness(105%) contrast(98%);
+  }
 }

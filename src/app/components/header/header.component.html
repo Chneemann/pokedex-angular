@@ -13,5 +13,12 @@
       (input)="onSearchValueChanged()"
       placeholder="Search a Pokémon..."
     />
+    @if (searchValue) {
+    <img
+      class="search-icon"
+      src="./../../../img/close.svg"
+      alt=""
+      (click)="searchValue = ''; onSearchValueChanged()"
+    />}
   </div>
 </header>

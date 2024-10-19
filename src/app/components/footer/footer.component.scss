@@ -17,5 +17,8 @@ footer {
     color: $color-white;
     text-shadow: 1px 1px 4px $color-black;
     text-decoration: none;
+    &:hover {
+      color: $color-orange;
+    }
   }
 }
