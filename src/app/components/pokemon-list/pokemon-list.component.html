@@ -19,11 +19,12 @@
           alt=""
         />
       </div>
-      <span class="pokemon-id"></span>
+      <span class="pokemon-id">#{{ pokemon.id }}</span>
     </div>
     } }
   </div>
-  @if (limitPokemon !== 151 && filteredPokemon.length && !searchValue) {
+  @if (this.offset + this.limit < this.total && filteredPokemon.length &&
+  !searchValue) {
   <button (click)="loadMorePokemon()">Load more Pokemon</button>
   }
 </content>

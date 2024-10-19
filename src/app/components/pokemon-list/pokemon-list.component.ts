@@ -16,7 +16,9 @@ export class PokemonListComponent implements OnInit {
   pokemonList: any[] = [];
   pokemonDetails: any[] = [];
   filteredPokemon: any[] = [];
-  limitPokemon: number = 20;
+  total: number = 640;
+  limit: number = 20;
+  offset: number = 0;
   searchValue: string = '';
 
   constructor(private pokemonApiService: PokemonApiService) {}
@@ -26,7 +28,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemonList() {
-    this.pokemonApiService.getPokemonList(this.limitPokemon).subscribe({
+    this.pokemonApiService.getPokemonList(this.offset, this.limit).subscribe({
       next: (data) => {
         this.pokemonList = data.results;
         this.loadPokemonDetails();
@@ -41,8 +43,8 @@ export class PokemonListComponent implements OnInit {
     );
     forkJoin(requests).subscribe({
       next: (details) => {
-        this.pokemonDetails = details;
-        this.filteredPokemon = details;
+        this.pokemonDetails.push(...details);
+        this.filteredPokemon = this.pokemonDetails;
       },
       error: (err) => console.error('Error fetching Pokémon details:', err),
     });
@@ -64,11 +66,9 @@ export class PokemonListComponent implements OnInit {
   }
 
   loadMorePokemon() {
-    if (this.limitPokemon === 140) {
-      this.limitPokemon += 11;
-    } else {
-      this.limitPokemon += 20;
+    if (this.offset + this.limit < this.total) {
+      this.offset += this.limit;
+      this.getPokemonList();
     }
-    this.getPokemonList();
   }
 }

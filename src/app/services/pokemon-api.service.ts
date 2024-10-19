@@ -10,8 +10,8 @@ export class PokemonApiService {
 
   constructor(private http: HttpClient) {}
 
-  getPokemonList(limit: number): Observable<any> {
-    return this.http.get(this.apiUrl + '?limit=' + limit);
+  getPokemonList(offset: number, limit: number): Observable<any> {
+    return this.http.get(this.apiUrl + '?offset=' + offset + '&limit=' + limit);
   }
 
   getPokemonDetails(name: string): Observable<any> {
