@@ -20,6 +20,8 @@ export class PokemonListComponent implements OnInit {
   limit: number = 20;
   offset: number = 0;
   searchValue: string = '';
+  isLoading: boolean = false;
+  loadingTimeout: any;
 
   constructor(private pokemonApiService: PokemonApiService) {}
 
@@ -28,12 +30,21 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemonList() {
+    this.isLoading = false;
+    this.loadingTimeout = setTimeout(() => {
+      this.isLoading = true;
+    }, 100);
+
     this.pokemonApiService.getPokemonList(this.offset, this.limit).subscribe({
       next: (data) => {
+        clearTimeout(this.loadingTimeout);
         this.pokemonList = data.results;
         this.loadPokemonDetails();
       },
-      error: (err) => console.error('Error fetching Pokémon:', err),
+      error: (err) => {
+        clearTimeout(this.loadingTimeout);
+        console.error('Error fetching Pokémon:', err);
+      },
     });
   }
 
@@ -45,8 +56,12 @@ export class PokemonListComponent implements OnInit {
       next: (details) => {
         this.pokemonDetails.push(...details);
         this.filteredPokemon = this.pokemonDetails;
+        this.isLoading = false;
       },
-      error: (err) => console.error('Error fetching Pokémon details:', err),
+      error: (err) => {
+        console.error('Error fetching Pokémon details:', err);
+        this.isLoading = false;
+      },
     });
   }
 

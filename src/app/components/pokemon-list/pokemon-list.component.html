@@ -29,3 +29,13 @@
   }
 </content>
 <app-footer></app-footer>
+
+<!-- Loading spinner -->
+@if (isLoading) {
+<div class="loading-spinner">
+  <div class="loader"></div>
+  <div class="loader-text">
+    <p>Loading data...</p>
+  </div>
+</div>
+}
