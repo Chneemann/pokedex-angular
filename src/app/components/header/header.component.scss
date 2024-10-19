@@ -1,0 +1,41 @@
+@import "./../../../assets/style/colors.scss";
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  height: 52px;
+  background-color: $color-very-dark-blue;
+  h1 {
+    color: $color-white;
+  }
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.search input {
+  width: 200px;
+  padding: 6px 12px;
+  border: 2px solid $color-white;
+  border-radius: 5px;
+  font-size: 16px;
+  color: $color-dark-gray;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &::placeholder {
+    color: $color-gray;
+    opacity: 1;
+  }
+}
+
+.search input:focus {
+  border-color: #f5ac78; /* Rahmenfarbe beim Fokus */
+  box-shadow: 0 0 5px rgba(245, 172, 120, 0.5); /* Sanfter Schatten beim Fokus */
+  outline: none; /* Entfernt den Standardfokusrahmen */
+}

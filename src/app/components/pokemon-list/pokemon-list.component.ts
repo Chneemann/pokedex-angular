@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonApiService } from '../services/pokemon-api.service';
+import { PokemonApiService } from '../../services/pokemon-api.service';
 import { forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
