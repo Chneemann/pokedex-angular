@@ -1,5 +1,16 @@
 <div class="pokemon-list">
-  @for (pokemons of pokemonDetails; track pokemons; let i = $index) {
-  <div class="pokemon-card">{{ i }}: {{ pokemons.name }}</div>
+  @for (pokemon of pokemonDetails; track pokemon; let i = $index) {
+  <div class="pokemon-card" [ngClass]="pokemon.types[0].type.name" onclick="">
+    <div class="pokemon-card-name">{{ pokemon.name }}</div>
+    <div class="pokemon-card-content">
+      <div class="pokemon-card-type">
+        @for (type of pokemon.types; track type; let i = $index) {
+        <span>{{ type.type.name }}</span>
+        }
+      </div>
+      <img src="{{ pokemon.sprites.other.dream_world.front_default }}" alt="" />
+    </div>
+    <span class="pokemon-id"></span>
+  </div>
   }
 </div>
