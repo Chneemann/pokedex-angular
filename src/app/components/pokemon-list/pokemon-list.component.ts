@@ -3,11 +3,12 @@ import { PokemonApiService } from '../../services/pokemon-api.service';
 import { forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.scss'],
 })
@@ -16,6 +17,7 @@ export class PokemonListComponent implements OnInit {
   pokemonDetails: any[] = [];
   filteredPokemon: any[] = [];
   limitPokemon: number = 20;
+  searchValue: string = '';
 
   constructor(private pokemonApiService: PokemonApiService) {}
 
@@ -47,6 +49,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   onValueChanged(value: string) {
+    this.searchValue = value;
     this.searchPokemon(value);
   }
 

@@ -2,11 +2,14 @@
 @import "./../../../assets/style/type-colors.scss";
 
 content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: calc(100vh - 148px);
+  position: fixed;
+  top: 100px;
+  bottom: 76px;
+  left: 0;
+  right: 0;
   padding: 24px;
+  text-align: center;
+  overflow-x: auto;
   color: $color-white;
   background-color: $color-dark-blue;
   text-shadow: 1px 1px 4px $color-black;

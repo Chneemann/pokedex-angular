@@ -1,0 +1,21 @@
+@import "./../../../assets/style/colors.scss";
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: calc(100vw - 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  height: 52px;
+  color: $color-white;
+  background-color: $color-very-dark-blue;
+  text-shadow: 1px 1px 4px $color-black;
+  gap: 12px;
+  a {
+    color: $color-white;
+    text-shadow: 1px 1px 4px $color-black;
+    text-decoration: none;
+  }
+}

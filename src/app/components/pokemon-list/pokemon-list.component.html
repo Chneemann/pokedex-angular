@@ -23,7 +23,8 @@
     </div>
     } }
   </div>
-  @if (limitPokemon !== 151) {
+  @if (limitPokemon !== 151 && filteredPokemon.length && !searchValue) {
   <button (click)="loadMorePokemon()">Load more Pokemon</button>
   }
 </content>
+<app-footer></app-footer>

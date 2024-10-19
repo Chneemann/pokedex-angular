@@ -1,12 +1,17 @@
 @import "./../../../assets/style/colors.scss";
 
 header {
+  position: fixed;
+  top: 0;
+  width: calc(100vw - 48px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 24px;
   height: 52px;
+  color: $color-white;
   background-color: $color-very-dark-blue;
+  text-shadow: 1px 1px 4px $color-black;
   .logo {
     display: flex;
     img {
@@ -15,7 +20,6 @@ header {
     }
     h1 {
       padding-left: 12px;
-      color: $color-white;
     }
   }
 }
