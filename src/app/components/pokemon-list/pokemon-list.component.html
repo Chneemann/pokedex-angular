@@ -1,21 +1,29 @@
 <app-header (valueChanged)="onValueChanged($event)"></app-header>
-<div class="pokemon-list">
-  @if (!filteredPokemon.length) {
-  <h2>No Pokemon found...</h2>
-  } @else {
-  <!-- Pokemon cards -->
-  @for (pokemon of filteredPokemon; track pokemon; let i = $index) {
-  <div class="pokemon-card" [ngClass]="pokemon.types[0].type.name" onclick="">
-    <div class="pokemon-card-name">{{ pokemon.name }}</div>
-    <div class="pokemon-card-content">
-      <div class="pokemon-card-type">
-        @for (type of pokemon.types; track type; let i = $index) {
-        <span>{{ type.type.name }}</span>
-        }
+<content>
+  <div class="pokemon-list">
+    @if (!filteredPokemon.length) {
+    <h2>No Pokemon found...</h2>
+    } @else {
+    <!-- Pokemon cards -->
+    @for (pokemon of filteredPokemon; track pokemon; let i = $index) {
+    <div class="pokemon-card" [ngClass]="pokemon.types[0].type.name" onclick="">
+      <div class="pokemon-card-name">{{ pokemon.name }}</div>
+      <div class="pokemon-card-content">
+        <div class="pokemon-card-type">
+          @for (type of pokemon.types; track type; let i = $index) {
+          <span>{{ type.type.name }}</span>
+          }
+        </div>
+        <img
+          src="{{ pokemon.sprites.other.dream_world.front_default }}"
+          alt=""
+        />
       </div>
-      <img src="{{ pokemon.sprites.other.dream_world.front_default }}" alt="" />
+      <span class="pokemon-id"></span>
     </div>
-    <span class="pokemon-id"></span>
+    } }
   </div>
-  } }
-</div>
+  @if (limitPokemon !== 151) {
+  <button (click)="loadMorePokemon()">Load more Pokemon</button>
+  }
+</content>

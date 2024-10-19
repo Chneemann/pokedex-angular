@@ -15,6 +15,7 @@ export class PokemonListComponent implements OnInit {
   pokemonList: any[] = [];
   pokemonDetails: any[] = [];
   filteredPokemon: any[] = [];
+  limitPokemon: number = 20;
 
   constructor(private pokemonApiService: PokemonApiService) {}
 
@@ -23,7 +24,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemonList() {
-    this.pokemonApiService.getPokemonList().subscribe({
+    this.pokemonApiService.getPokemonList(this.limitPokemon).subscribe({
       next: (data) => {
         this.pokemonList = data.results;
         this.loadPokemonDetails();
@@ -57,5 +58,14 @@ export class PokemonListComponent implements OnInit {
     } else {
       this.filteredPokemon = this.pokemonDetails;
     }
+  }
+
+  loadMorePokemon() {
+    if (this.limitPokemon === 140) {
+      this.limitPokemon += 11;
+    } else {
+      this.limitPokemon += 20;
+    }
+    this.getPokemonList();
   }
 }
