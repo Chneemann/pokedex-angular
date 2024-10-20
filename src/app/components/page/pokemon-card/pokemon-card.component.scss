@@ -131,6 +131,9 @@ nav {
     &:hover {
       color: $color-orange;
     }
+    &.active {
+      color: $color-orange;
+    }
   }
 }
 
@@ -194,5 +197,29 @@ nav {
       border-radius: 2.5px;
       height: 5px;
     }
+  }
+}
+
+.abilities {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 85%;
+  .abilities-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+  }
+  .abilities-name {
+    width: 180px;
+    padding-right: 12px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: $color-gray;
+  }
+  .abilities-description {
+    width: 100%;
+    font-size: 16px;
   }
 }

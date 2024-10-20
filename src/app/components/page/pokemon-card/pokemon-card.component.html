@@ -1,6 +1,7 @@
 <div class="overlay" (click)="closePokemonCard()">
   @for (pokemon of pokemonDetails; track pokemon; let i = $index) {
   <div class="card" (click)="stopPropagation($event)">
+    <!-- Content -->
     <div class="content" [ngClass]="pokemon.types[0].type.name">
       <div class="header">
         <div class="name">{{ pokemon.name }}</div>
@@ -24,11 +25,28 @@
         />
       </div>
     </div>
+
+    <!-- Stats -->
     <div class="stats">
       <nav>
-        <p (click)="loadStats('about')">About</p>
-        <p (click)="loadStats('base-stats')">Base Stats</p>
-        <p (click)="loadStats('abilities')">Abilities</p>
+        <p
+          (click)="loadStats('about')"
+          [ngClass]="{ active: openStats === 'about' }"
+        >
+          About
+        </p>
+        <p
+          (click)="loadStats('base-stats')"
+          [ngClass]="{ active: openStats === 'base-stats' }"
+        >
+          Base Stats
+        </p>
+        <p
+          (click)="loadStats('abilities')"
+          [ngClass]="{ active: openStats === 'abilities' }"
+        >
+          Abilities
+        </p>
       </nav>
 
       <!-- About -->
@@ -72,7 +90,22 @@
 
       <!-- Abilities -->
       @if (openStats == 'abilities') {
-      <!-- TODO-->
+      <div class="abilities">
+        @for (ability of pokemon.abilities; track ability; let i = $index) {
+        <div class="abilities-content">
+          <div class="abilities-name">
+            {{ ability.ability.name }}
+          </div>
+          <div class="abilities-description">
+            {{
+              getAbilityEffect(
+                searchAbilityId(+getIdFromUrl(ability.ability.url))
+              )
+            }}
+          </div>
+        </div>
+        }
+      </div>
       }
     </div>
   </div>
