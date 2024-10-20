@@ -14,6 +14,7 @@ export class PokemonCardComponent implements OnInit {
   @Output() cardClosed = new EventEmitter<string>();
 
   pokemonDetails: any[] = [];
+  openStats: string = 'base-stats';
 
   constructor(private pokemonApiService: PokemonApiService) {}
 
@@ -36,5 +37,9 @@ export class PokemonCardComponent implements OnInit {
 
   stopPropagation(event: any) {
     event.stopPropagation();
+  }
+
+  loadStats(data: string) {
+    this.openStats = data;
   }
 }

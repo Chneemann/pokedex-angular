@@ -24,7 +24,57 @@
         />
       </div>
     </div>
-    <div class="stats"></div>
+    <div class="stats">
+      <nav>
+        <p (click)="loadStats('about')">About</p>
+        <p (click)="loadStats('base-stats')">Base Stats</p>
+        <p (click)="loadStats('abilities')">Abilities</p>
+      </nav>
+
+      <!-- About -->
+      @if (openStats == 'about') {
+      <div class="about">
+        <div class="about-content">
+          <div class="about-name">Height</div>
+          <div class="about-value">{{ pokemon.height / 10 }} m</div>
+        </div>
+        <div class="about-content">
+          <div class="about-name">Weight</div>
+          <div class="about-value">{{ pokemon.weight / 100 }} kg</div>
+        </div>
+        <div class="about-content">
+          <div class="about-name">Base Exp.</div>
+          <div class="about-value">{{ pokemon.base_experience }} exp</div>
+        </div>
+      </div>
+      }
+
+      <!-- Base Stats -->
+      @if (openStats == 'base-stats') {
+      <div class="basestats">
+        @for (basestat of pokemon.stats; track basestat; let i = $index) {
+        <div class="basestats-content">
+          <div class="basestats-name">{{ basestat.stat.name }}</div>
+          <div class="basestats-value">{{ basestat.base_stat }}</div>
+          <div class="basestats-bar">
+            <span
+              class="stat-bar"
+              [style.width]="basestat.base_stat + '%'"
+              [style.backgroundColor]="
+                basestat.base_stat < 70 ? '#FC8383' : '#56c583'
+              "
+            ></span>
+          </div>
+        </div>
+        }
+      </div>
+      }
+
+      <!-- Abilities -->
+      @if (openStats == 'abilities') {
+      <!-- TODO-->
+      }
+    </div>
   </div>
   }
 </div>
