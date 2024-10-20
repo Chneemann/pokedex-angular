@@ -1,0 +1,82 @@
+@import "./../../../../assets/style/colors.scss";
+
+section {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  padding: 24px;
+  color: $color-white;
+  background-color: $color-dark-blue;
+  text-shadow: 1px 1px 4px $color-black;
+}
+
+.router-padding {
+  padding: 48px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    margin-left: 12px;
+    &:hover {
+      transform: scale(1.2);
+      filter: brightness(0) saturate(100%) invert(38%) sepia(62%)
+        saturate(3062%) hue-rotate(341deg) brightness(105%) contrast(98%);
+    }
+  }
+}
+
+h1 {
+  font-size: 61px;
+  font-weight: 700;
+  width: 85%;
+  padding-bottom: 24px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  padding: 48px 0 24px 0;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 24px 0;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+
+a {
+  color: $color-orange;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Media queries */
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 47px;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
+
+  .router-padding {
+    padding: 24px;
+  }
+}

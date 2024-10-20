@@ -1,4 +1,4 @@
-@import "./../../../assets/style/colors.scss";
+@import "./../../../../assets/style/colors.scss";
 
 header {
   position: fixed;
@@ -27,9 +27,8 @@ header {
 
 .search {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
-  margin: 20px;
   position: relative;
 }
 
@@ -61,5 +60,13 @@ header {
   &:hover {
     filter: brightness(0) saturate(100%) invert(38%) sepia(62%) saturate(3062%)
       hue-rotate(341deg) brightness(105%) contrast(98%);
+  }
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    display: none;
   }
 }
