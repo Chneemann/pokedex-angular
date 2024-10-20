@@ -2,7 +2,6 @@
 @import "../../../../assets/style/type-colors.scss";
 
 /* Overlay */
-
 .overlay {
   position: fixed;
   top: 0;
@@ -19,8 +18,7 @@
   z-index: 999;
 }
 
-/* Pokemon card */
-
+/* Card */
 .card {
   min-width: 300px;
   width: 500px;
@@ -83,6 +81,7 @@
     padding: 8px;
     margin: 8px 0;
     border-radius: 20px;
+    text-transform: capitalize;
   }
   .id {
     position: absolute;
@@ -102,124 +101,5 @@
     width: auto;
     max-width: 340px;
     height: 240px;
-  }
-}
-
-/* Stats */
-
-.stats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: $color-white;
-  border-radius: 40px;
-  min-height: 100px;
-  margin-top: -35px;
-  padding-bottom: 32px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  margin-top: 48px;
-  padding-bottom: 32px;
-  p {
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    &:hover {
-      color: $color-orange;
-    }
-    &.active {
-      color: $color-orange;
-    }
-  }
-}
-
-.about {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 85%;
-  .about-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px;
-    .about-name {
-      width: 150px;
-      font-size: 16px;
-      text-transform: uppercase;
-      color: $color-gray;
-    }
-    .about-value {
-      width: 80px;
-      font-size: 16px;
-      font-weight: 700;
-      color: $color-black;
-    }
-  }
-}
-
-.basestats {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 85%;
-  .basestats-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px;
-  }
-  .basestats-name {
-    width: 150px;
-    font-size: 16px;
-    text-transform: uppercase;
-    color: $color-gray;
-  }
-  .basestats-value {
-    width: 80px;
-    font-size: 16px;
-    font-weight: 700;
-    color: $color-black;
-  }
-  .basestats-bar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 5px;
-    border-radius: 2.5px;
-    background-color: $color-light-gray;
-    .stat-bar {
-      width: 0%;
-      border-radius: 2.5px;
-      height: 5px;
-    }
-  }
-}
-
-.abilities {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 85%;
-  .abilities-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px;
-  }
-  .abilities-name {
-    width: 180px;
-    padding-right: 12px;
-    font-size: 16px;
-    text-transform: uppercase;
-    color: $color-gray;
-  }
-  .abilities-description {
-    width: 100%;
-    font-size: 16px;
   }
 }
