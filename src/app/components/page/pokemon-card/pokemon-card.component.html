@@ -2,19 +2,29 @@
   @for (pokemon of pokemonDetails; track pokemon; let i = $index) {
   <div class="card" (click)="stopPropagation($event)">
     <div class="content" [ngClass]="pokemon.types[0].type.name">
-      <div class="nav"></div>
       <div class="header">
-        <div>
-          <h2 class="name"></h2>
-          <div class="type"></div>
-        </div>
-        <div>
-          <span class="id"></span>
+        <div class="name">{{ pokemon.name }}</div>
+        <img
+          class="close-button"
+          src="./../../../img/close.svg"
+          alt="close"
+          (click)="closePokemonCard()"
+        />
+        <div class="type">
+          @for (type of pokemon.types; track type; let i = $index) {
+          <span>{{ type.type.name }}</span>
+          }
+          <p class="id">#{{ pokemon.id }}</p>
         </div>
       </div>
-      <div class="img"><img src="" alt="" /></div>
+      <div class="img">
+        <img
+          src="{{ pokemon.sprites.other.dream_world.front_default }}"
+          alt="{{ pokemon.name }}"
+        />
+      </div>
     </div>
-    <div class="details"></div>
+    <div class="stats"></div>
   </div>
   }
 </div>

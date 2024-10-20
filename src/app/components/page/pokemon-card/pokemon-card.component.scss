@@ -1,7 +1,7 @@
 @import "../../../../assets/style/colors.scss";
 @import "../../../../assets/style/type-colors.scss";
 
-/* Loading spinner */
+/* Overlay */
 
 .overlay {
   position: fixed;
@@ -19,10 +19,12 @@
   z-index: 999;
 }
 
+/* Pokemon card */
+
 .card {
   min-width: 300px;
   width: 500px;
-  filter: drop-shadow(3px 3px 4px gray);
+  filter: drop-shadow(3px 3px 4px $color-gray);
 }
 
 .content {
@@ -31,9 +33,9 @@
   background-position: top 120px right -50px;
   background-size: 300px;
   background-repeat: no-repeat;
-  color: white;
+  color: $color-white;
   padding: 24px;
-  text-shadow: 1px 1px 4px #000000;
+  text-shadow: 1px 1px 4px $color-black;
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
   a {
@@ -43,11 +45,73 @@
   }
 }
 
-.details {
+.name {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(2%)
+    hue-rotate(215deg) brightness(103%) contrast(101%);
+  cursor: pointer;
+  margin-left: 12px;
+  &:hover {
+    transform: scale(1.2);
+    filter: brightness(0) saturate(100%) invert(38%) sepia(62%) saturate(3062%)
+      hue-rotate(341deg) brightness(105%) contrast(98%);
+  }
+}
+
+.type {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  span {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    font-size: 19px;
+    width: 70px;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 20px;
+  }
+  .id {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    font-size: 16px;
+    color: $color-white;
+    text-shadow: 1px 1px 4px $color-black;
+  }
+}
+
+.img {
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+  img {
+    width: auto;
+    max-width: 340px;
+    height: 240px;
+  }
+}
+
+/* Stats */
+
+.stats {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: $color-white;
   border-radius: 40px;
   min-height: 100px;
   margin-top: -35px;
