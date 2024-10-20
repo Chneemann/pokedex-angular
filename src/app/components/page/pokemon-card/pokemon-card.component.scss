@@ -22,7 +22,7 @@
 .card {
   min-width: 300px;
   width: 500px;
-  filter: drop-shadow(3px 3px 4px $color-gray);
+  filter: drop-shadow(3px 3px 7px rgba($color-black, 0.4));
 }
 
 .content {

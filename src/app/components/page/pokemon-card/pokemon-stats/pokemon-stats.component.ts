@@ -14,7 +14,7 @@ export class PokemonStatsComponent implements OnInit {
 
   pokemonDetails: any[] = [];
   pokemonAbility: any[] = [];
-  openStats: string = 'base-stats';
+  openStats: string = 'about';
 
   constructor(private pokemonApiService: PokemonApiService) {}
 

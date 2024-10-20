@@ -13,6 +13,9 @@ footer {
   background-color: $color-very-dark-blue;
   text-shadow: 1px 1px 4px $color-black;
   gap: 12px;
+  z-index: 2;
+  border-top: 2px solid $color-very-dark-blue;
+  box-shadow: 0 -2px 10px $color-dark-blue;
   a {
     color: $color-white;
     text-shadow: 1px 1px 4px $color-black;
