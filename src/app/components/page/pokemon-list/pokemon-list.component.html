@@ -6,7 +6,11 @@
     } @else {
     <!-- Pokemon cards -->
     @for (pokemon of filteredPokemon; track pokemon; let i = $index) {
-    <div class="pokemon-card" [ngClass]="pokemon.types[0].type.name" onclick="">
+    <div
+      class="pokemon-card"
+      [ngClass]="pokemon.types[0].type.name"
+      (click)="openPokemonCard(pokemon.name)"
+    >
       <div class="pokemon-card-name">{{ pokemon.name }}</div>
       <div class="pokemon-card-content">
         <div class="pokemon-card-type">
@@ -38,4 +42,12 @@
     <p>Loading data...</p>
   </div>
 </div>
+}
+
+<!-- Pokemon card -->
+@if (showPokemonCard !== "") {
+<app-pokemon-card
+  [pokemonName]="showPokemonCard"
+  (cardClosed)="closePokemonCard()"
+></app-pokemon-card>
 }

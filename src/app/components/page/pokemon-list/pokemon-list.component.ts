@@ -4,11 +4,17 @@ import { forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { PokemonCardComponent } from '../pokemon-card/pokemon-card.component';
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    FooterComponent,
+    PokemonCardComponent,
+  ],
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.scss'],
 })
@@ -16,6 +22,7 @@ export class PokemonListComponent implements OnInit {
   pokemonList: any[] = [];
   pokemonDetails: any[] = [];
   filteredPokemon: any[] = [];
+  showPokemonCard: string = '';
   total: number = 640;
   limit: number = 20;
   offset: number = 0;
@@ -85,5 +92,13 @@ export class PokemonListComponent implements OnInit {
       this.offset += this.limit;
       this.getPokemonList();
     }
+  }
+
+  openPokemonCard(name: string) {
+    this.showPokemonCard = name;
+  }
+
+  closePokemonCard() {
+    this.showPokemonCard = '';
   }
 }

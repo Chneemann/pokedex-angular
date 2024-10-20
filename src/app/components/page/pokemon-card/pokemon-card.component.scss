@@ -1,0 +1,55 @@
+@import "../../../../assets/style/colors.scss";
+@import "../../../../assets/style/type-colors.scss";
+
+/* Loading spinner */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  background-color: rgba($color-black, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.card {
+  min-width: 300px;
+  width: 500px;
+  filter: drop-shadow(3px 3px 4px gray);
+}
+
+.content {
+  height: 40vh;
+  background-image: url(./../../../../assets/img/background.png);
+  background-position: top 120px right -50px;
+  background-size: 300px;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 24px;
+  text-shadow: 1px 1px 4px #000000;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  a {
+    display: block;
+    width: 100px;
+    cursor: pointer;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 40px;
+  min-height: 100px;
+  margin-top: -35px;
+  padding-bottom: 32px;
+}
